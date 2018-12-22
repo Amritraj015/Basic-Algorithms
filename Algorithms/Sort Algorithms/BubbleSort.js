@@ -11,5 +11,5 @@ function BubbleSort(arr) {
   return arr;
 }
 
-let arr = [11, 54, 1, 0, -78, 44, -54, 54, 321];
+let arr = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 console.log(BubbleSort(arr));
