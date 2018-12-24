@@ -1,4 +1,4 @@
-function Pivot(arr, start, end) {
+function PivotIndex(arr, start, end) {
   let pivot = arr[start];
 
   while (start < end) {
@@ -16,7 +16,7 @@ function Pivot(arr, start, end) {
 function QuickSort(arr, start, end) {
   if (end - start <= 1) return arr;
 
-  let pivotIndex = Pivot(arr, start, end);
+  let pivotIndex = PivotIndex(arr, start, end);
   QuickSort(arr, start, pivotIndex);
   QuickSort(arr, pivotIndex + 1, end);
 
