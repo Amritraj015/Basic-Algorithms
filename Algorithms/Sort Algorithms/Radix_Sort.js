@@ -1,9 +1,9 @@
 //  The RdixSort() function calls the RadixAtomicSort() function
 //  to perform digit-wise sorting.
 function RadixSort(arr, sizeOfData, radix) {
-  for (let position = 0; position < sizeOfData; position++) {
+  for (let position = 0; position < sizeOfData; position++)
     arr = RadixAtomicSort(arr, position, radix);
-  }
+
   return arr;
 }
 
