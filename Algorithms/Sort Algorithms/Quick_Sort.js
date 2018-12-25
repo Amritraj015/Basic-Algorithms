@@ -17,11 +17,11 @@ function QuickSort(arr, start, end) {
   if (end - start <= 1) return arr;
 
   let pivotIndex = PivotIndex(arr, start, end);
-  QuickSort(arr, start, pivotIndex);
-  QuickSort(arr, pivotIndex + 1, end);
+  arr = QuickSort(arr, start, pivotIndex);
+  arr = QuickSort(arr, pivotIndex + 1, end);
 
   return arr;
 }
 
-let arr = [10, 1, 9, 2, 8, 3, 7, 4, 6, 5];
+let arr = [-457, 45, 1, 0, -57, 66, 999, 1507, -7777];
 console.log(QuickSort(arr, 0, arr.length));
