@@ -2,7 +2,7 @@ function InsertionSort(arr) {
   for (let i = 1; i < arr.length; i++) {
     let newElement = arr[i];
     let j;
-    for (j = i; j > 0 && arr[j - 1] > j; j--) arr[j] = arr[j - 1];
+    for (j = i; j > 0 && arr[j - 1] > newElement; j--) arr[j] = arr[j - 1];
     arr[j] = newElement;
   }
   return arr;
