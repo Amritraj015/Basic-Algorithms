@@ -1,3 +1,5 @@
+//  This Implementation is meant for sorting only lowercase alphabetical strings
+
 function RadixSortStrings(strArray, sizeOfData, radix) {
   for (let position = sizeOfData - 1; position >= 0; position--)
     strArray = RadixAtomicSort(strArray, position, radix);
