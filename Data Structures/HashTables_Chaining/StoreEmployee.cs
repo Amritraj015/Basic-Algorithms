@@ -1,4 +1,4 @@
-﻿namespace HashTable
+﻿namespace HashTable_LL
 {
     class StoreEmployee
     {

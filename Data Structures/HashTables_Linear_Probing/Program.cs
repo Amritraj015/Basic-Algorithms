@@ -29,15 +29,11 @@ namespace HashTable
 
             Console.WriteLine();
 
-
             hashTable.RemoveEmployee(0);
             hashTable.RemoveEmployee(9);
             hashTable.PrintHashTable();
-            
-
-
-
             Console.WriteLine("Employee at key {0} is: " + hashTable.GetEmployee(0), 0);
+
             Console.ReadKey();
         }
     }
