@@ -21,7 +21,7 @@ namespace Maze_Solver
         {
             try
             {
-                DepthFirstSearch(StartPosRow,StartPosColumn + 1);
+                DepthFirstSearch(StartPosRow,StartPosColumn );
                 Console.WriteLine("No Way Out!!!");
             }
             catch (Exception e)

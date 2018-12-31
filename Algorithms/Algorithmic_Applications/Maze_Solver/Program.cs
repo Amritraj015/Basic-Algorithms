@@ -12,7 +12,7 @@ namespace Maze_Solver
             //  3 - represents the way out
             //  There can be no other values in the Maze-Map
 
-            var fileReader = new FileReader(@"./input.txt", 5, 5);
+            var fileReader = new FileReader(@"./input.txt", 13, 13);
             fileReader.ParseFile();
             var mazeSolver = new MazeSolver(fileReader.Map, fileReader.StartRowIndex,fileReader.StartColumnIndex);
             mazeSolver.FindWayOut();

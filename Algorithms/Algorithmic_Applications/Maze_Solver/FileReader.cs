@@ -27,10 +27,10 @@ namespace Maze_Solver
                 var readStream = File.ReadAllLines(FileName);
                 var k = 0;
 
-                while (k < 5)
+                while (k < NumRows)
                 {
                     var str = readStream[k].Split(' ');
-                    for (var i = 0; i < 5; i++)
+                    for (var i = 0; i < NumColumns; i++)
                     {
                         Map[k, i] = int.Parse(str[i]);
                         if (Map[k, i] == 2)
