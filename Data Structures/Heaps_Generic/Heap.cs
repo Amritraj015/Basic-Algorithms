@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 
 //  This is an implementation of a generic Min-Heap.
-namespace Heap
+namespace Dijkstra_Shortest_Path_Algorithm
 {
-    public class Heap<T> where T: IComparable<T>
+    public class Heap<T> where T : IComparable<T>
     {
         private readonly IComparer<T> _cmp;
         private List<T> _heap = new List<T>();
@@ -51,6 +51,23 @@ namespace Heap
         //=================================================================================================
 
         //=================================================================================================
+        //  Function to return the First index of an element.
+        //  Returns -1 if the element does not exits in the Heap.
+        public int IndexOf(T findIndex)
+        {
+            for (var i = 0; i < _heap.Count; i++)
+            {
+                if (_cmp.Compare(_heap[i], findIndex) == 0)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+        //=================================================================================================
+
+        //=================================================================================================
         //  Returns parent index of a given child index
         public int GetParent(int index)
         {
@@ -91,22 +108,42 @@ namespace Heap
         //=================================================================================================
 
         //=================================================================================================
-        //  Removes an element from the Heap with the help of HeapDown helper method
-        public T Pop()
+        //  Removes a first specific element from the heap and returns true if the element is present in the Heap.
+        //  Returns false if the Heap is either empty or the element does not exist in the Heap.
+        public bool RemoveElement(T removeElement)
         {
-            if(IsEmpty()) throw new InvalidOperationException("Heap is Empty. There is nothing to Pop!");
+            var index = IndexOf(removeElement);
 
-            var deletedValue = _heap[0];
-            _heap.RemoveAt(0);
-            HeapDown();
+            if (IsEmpty() || index == -1) return false;
 
+            Pop(index);
+            return true;
+        }
+
+        //  Removes an element from the Heap with the help of HeapDown helper method
+        public T Pop(int index = 0)
+        {
+            if (IsEmpty()) throw new InvalidOperationException("Heap is Empty. There is nothing to Pop!");
+
+            var parent = GetParent(index);
+            var deletedValue = _heap[index];
+
+            if (index == 0 || _cmp.Compare(_heap[index], _heap[parent]) > 0)
+            {
+                HeapDown(index);
+            }
+            else
+            {
+                HeapUp(index);
+            }
+
+            _heap.RemoveAt(index);
             return deletedValue;
         }
 
         //  Helper method to Re=Heapify the Heap after a deletion (popping) of element.
-        private void HeapDown()
+        private void HeapDown(int index)
         {
-            var index = 0;
             while (index < _heap.Count)
             {
                 var leftChild = GetChild(index, true);
